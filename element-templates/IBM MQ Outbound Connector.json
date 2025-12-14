@@ -1,0 +1,156 @@
+{
+  "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+  "name": "IBM MQ Outbound Connector",
+  "id": "ibmmqoutboundtemplate",
+  "version": 1,
+  "description": "IBM MQ provides a universal messaging backbone with robust connectivity for flexible and reliable.",
+  "appliesTo": [
+    "bpmn:Task"
+  ],
+  "elementType": {
+    "value": "bpmn:ServiceTask"
+  },
+  "category": {
+    "id": "connectors",
+    "name": "Connectors"
+  },
+  "groups": [
+    {
+      "id": "compose",
+      "label": "Compose"
+    },
+    {
+      "id": "output",
+      "label": "Output mapping"
+    },
+    {
+      "id": "error",
+      "label": "Error handling"
+    },
+    {
+      "id": "retries",
+      "label": "Retries"
+    }
+  ],
+  "properties": [
+    {
+      "value": "io.camunda:template:1",
+      "binding": {
+        "property": "type",
+        "type": "zeebe:taskDefinition"
+      },
+      "type": "Hidden"
+    },
+    {
+      "id": "qmgr",
+      "label": "Queue Manager Name",
+      "description": "",
+      "optional": false,
+      "constraints": {
+        "notEmpty": true
+      },
+      "feel": "optional",
+      "group": "compose",
+      "binding": {
+        "name": "qmgr",
+        "type": "zeebe:input"
+      },
+      "type": "Text"
+    },
+    {
+      "id": "qname",
+      "label": "Queue Name",
+      "description": "",
+      "optional": false,
+      "constraints": {
+        "notEmpty": true
+      },
+      "feel": "optional",
+      "group": "compose",
+      "binding": {
+        "name": "qname",
+        "type": "zeebe:input"
+      },
+      "type": "Text"
+    },
+    {
+      "id": "message",
+      "label": "Message",
+      "description": "Mention the message which you want to publish.",
+      "optional": false,
+      "constraints": {
+        "notEmpty": true
+      },
+      "feel": "optional",
+      "group": "compose",
+      "binding": {
+        "name": "message",
+        "type": "zeebe:input"
+      },
+      "type": "Text"
+    },
+    {
+      "id": "resultVariable",
+      "label": "Result variable",
+      "description": "Name of variable to store the response in",
+      "group": "output",
+      "binding": {
+        "key": "resultVariable",
+        "type": "zeebe:taskHeader"
+      },
+      "type": "String"
+    },
+    {
+      "id": "resultExpression",
+      "label": "Result expression",
+      "description": "Expression to map the response into process variables",
+      "feel": "required",
+      "group": "output",
+      "binding": {
+        "key": "resultExpression",
+        "type": "zeebe:taskHeader"
+      },
+      "type": "Text"
+    },
+    {
+      "id": "errorExpression",
+      "label": "Error expression",
+      "description": "Expression to handle errors. Details in the <a href=\"https://docs.camunda.io/docs/components/connectors/use-connectors/\" target=\"_blank\">documentation</a>.",
+      "feel": "required",
+      "group": "error",
+      "binding": {
+        "key": "errorExpression",
+        "type": "zeebe:taskHeader"
+      },
+      "type": "Text"
+    },
+    {
+      "id": "retryCount",
+      "label": "Retries",
+      "description": "Number of retries",
+      "value": "3",
+      "feel": "optional",
+      "group": "retries",
+      "binding": {
+        "property": "retries",
+        "type": "zeebe:taskDefinition"
+      },
+      "type": "String"
+    },
+    {
+      "id": "retryBackoff",
+      "label": "Retry backoff",
+      "description": "ISO-8601 duration to wait between retries",
+      "value": "PT0S",
+      "group": "retries",
+      "binding": {
+        "key": "retryBackoff",
+        "type": "zeebe:taskHeader"
+      },
+      "type": "String"
+    }
+  ],
+  "icon": {
+    "contents": "data:image/png;base64,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"
+  }
+}
