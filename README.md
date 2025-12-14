@@ -6,9 +6,9 @@ Camunda 8 IBM MQ Outbound Connector is a custom-built connector (developed using
 
 
 
-### NSQ
+### IBM MQ
 
-IBM MQ
+
 
 1. install the server which is 90 days trail version- https://www.ibm.com/resources/mrs/assets/DownloadList?source=ibmmqtrial&lang=en_US
 2. set the path
