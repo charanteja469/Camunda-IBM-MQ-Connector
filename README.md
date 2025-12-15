@@ -136,7 +136,7 @@ Sample AMQSGET0 end
 
 1. Start your connector by executing `io.camunda.IBMMQ.LocalConnectorRuntime` in your development environment.
 2. Access the Web Modeler or Desktop Modeler and create a new project.
-3. Click on `Create new`, then select `Upload files`. Upload the connector template from the repository you have()
+3. Click on `Create new`, then select `Upload files`. Upload the connector template from the repository you have(https://github.com/charanteja469/Camunda-IBM-MQ-Connector/blob/master/element-templates/IBM%20MQ%20Outbound%20Connector.json)
 
  NOTE: if your using Desktop modeler--> go to modeler folder-->resources-->element-templates-->Past the above downloaded IBMMQ  
        Connector Template
@@ -182,7 +182,7 @@ Sample AMQSGET0 end
 
 ## Refer Camunda BPMN File
 
-you can refer the Camunda BPMN file here 👉🏻
+you can refer the Camunda BPMN file here 👉🏻 https://github.com/charanteja469/Camunda-IBM-MQ-Connector/blob/master/src/main/resources/IBMMQConnector_Test.bpmn
 
 
 
